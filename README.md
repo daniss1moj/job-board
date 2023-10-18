@@ -3,7 +3,7 @@
 Full-stack app with PHP + Laravel + MySQL + Blade templates stack. Job search application
 
 ### Credentials
-Email:brian97@example.com
+Email:brian97@example.com <br />
 Password:password
 
 
