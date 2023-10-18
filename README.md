@@ -19,5 +19,5 @@ Password:password
 
 <br />
 
-## 💥Demo (Deployed on VPS Hosting)
+## 💥Demo (Deployed on Shared Hosting)
 http://laravel-site.fun
