@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div>
-                            ${{ number_format($jobApplication->expected_salary) }}
+                            ${{ number_format($jobApplication->expected_salary ?? 0) }}
                         </div>
                     </div>
                 @empty
