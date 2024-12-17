@@ -16,7 +16,10 @@ class MyJobController extends Controller
         $this->authorize('viewAnyEmployer', Job::class);
         $jobs = auth()->user()->employer->jobs()->with('employer', 'jobApplications', 'jobApplications.user')->withTrashed()->get();
 
-        return view('my_job.index', compact('jobs'));
+        $title = "Мої вакансії | Huntberry";
+        $metaDescription = 'Мої вакансії, пошук роботи в Україні - Huntberry';
+
+        return view('my_job.index', compact('jobs', 'title', 'metaDescription'));
     }
 
     /**

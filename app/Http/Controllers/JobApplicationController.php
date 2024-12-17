@@ -14,7 +14,9 @@ class JobApplicationController extends Controller
     public function create(Job $job)
     {
         $this->authorize('apply', $job);
-        return view('job_application.create', compact('job'));
+        $title = "Відгук на вакансію $job->title | Huntberry";
+        $metaDescription = "Зробити відгук на вакансію $job->title, пошук роботи в Україні - Huntberry";
+        return view('job_application.create', compact('job', 'title', 'metaDescription'));
     }
 
     /**

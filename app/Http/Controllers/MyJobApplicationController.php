@@ -15,7 +15,10 @@ class MyJobApplicationController extends Controller
     {
         $applications = request()->user()->jobApplications()->with(['job' => fn($query) => $query->withCount('jobApplications')->withAvg('jobApplications', 'expected_salary')->withTrashed(), 'job.employer'])->latest()->get();
 
-        return view('my_job_application.index', compact('applications'));
+        $title = "Відгуки на вакансії | Huntberry";
+        $metaDescription = "Відгуки на вакансії, пошук роботи в Україні - Huntberry";
+
+        return view('my_job_application.index', compact('applications', 'title', 'metaDescription'));
     }
 
 

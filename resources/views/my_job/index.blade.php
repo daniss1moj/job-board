@@ -1,15 +1,16 @@
 <x-layout>
+    <h1 class="text-2xl font-bold mb-4">Мої вакансії</h1>
     <x-breadcrumbs :links="[
-        'My Jobs' => route('my-jobs.index'),
+        'Мої вакансії' => route('my-jobs.index'),
     ]" class='mb-4' />
     <div class='mb-8 text-right'>
         <x-link-button href="{{ route('my-jobs.create') }}">
-            Add new
+            Додати вакансію
         </x-link-button>
     </div>
     @forelse ($jobs as $job)
         <x-job-card :job="$job" @class(['mb-4', 'bg-red-300' => $job->deleted_at])>
-            <div class='text-xs text-slate-500'>
+            <div class='text-xs'>
                 @forelse($job->jobApplications as $jobApplication)
                     <div class='mb-4 flex items-center justify-between'>
                         <div>
@@ -22,7 +23,7 @@
                             <div>
                                 <a href="{{ route('downloadFile', ['file_name' => explode('/', $jobApplication->cv_path)[1], 'folder' => explode('/', $jobApplication->cv_path)[0]]) }}"
                                     class='font-semibold text-blue-500 hover:underline'>
-                                    Donwload CV
+                                    Скачати CV
                                 </a>
                             </div>
                         </div>
@@ -31,29 +32,29 @@
                         </div>
                     </div>
                 @empty
-                    <p>No applications yet</p>
+                    <p>Немає резюме</p>
                 @endforelse
                 @if (!$job->deleted_at)
                     <div class='flex space-x-2'>
-                        <x-link-button href="{{ route('my-jobs.edit', $job) }}">Edit</x-link-button>
+                        <x-link-button href="{{ route('my-jobs.edit', $job) }}">Редагувати</x-link-button>
                         <form action="{{ route('my-jobs.destroy', $job) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <x-button>
-                                Delete
+                                Видалити
                             </x-button>
                         </form>
                     </div>
                 @else
-                    <div class='font-medium text-black'>
-                        Deleted
+                    <div class='font-medium'>
+                        Видалено
                     </div>
                 @endif
             </div>
         </x-job-card>
     @empty
         <div class='rounded-md border border-dashed border-slate-300 p-8'>
-            <p class='text-center font-medium'>No jobs yet</p>
+            <p class='text-center font-medium'>Ще немає вакансій</p>
         </div>
     @endforelse
 </x-layout>

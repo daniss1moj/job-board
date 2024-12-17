@@ -1,5 +1,6 @@
 <x-layout>
-    <x-breadcrumbs :links="['Jobs' => route('jobs.index')]" class='mb-4'>
+    <h1 class="text-2xl font-bold mb-4"><span class="text-indigo-900 text-3xl">Huntberry</span> - Сайт для пошуку роботи в Україні</h1>
+    <x-breadcrumbs :links="['Вакансії' => route('jobs.index')]" class='mb-4'>
     </x-breadcrumbs>
     @php
         $search = request('search');
@@ -11,28 +12,28 @@
         <form x-ref="filters" id="filtering-form" action="{{ route('jobs.index') }}" method="GET">
             <div class='mb-4 grid grid-cols-2 gap-4'>
                 <div>
-                    <div class='mb-1 font-semibold'>Search</div>
-                    <x-text-input name='search' value='{{ $search }}' placeholder='Search for any text'
+                    <div class='mb-1 font-semibold'>Пошук</div>
+                    <x-text-input name='search' value='{{ $search }}' placeholder='Знайти роботу'
                         form-id='filtering-form' form-ref="filters"></x-text-input>
                 </div>
                 <div>
-                    <div class='mb-1 font-semibold'>Salary</div>
+                    <div class='mb-1 font-semibold'>Заробітна плата</div>
                     <div class='flex space-x-2'>
-                        <x-text-input name='min_salary' value='{{ $minSalary }}' placeholder='From'></x-text-input>
-                        <x-text-input name='max_salary' value='{{ $maxSalary }}' placeholder='To'></x-text-input>
+                        <x-text-input name='min_salary' value='{{ $minSalary }}' placeholder='від'></x-text-input>
+                        <x-text-input name='max_salary' value='{{ $maxSalary }}' placeholder='до'></x-text-input>
                     </div>
                 </div>
                 <div>
-                    <div class='mb-1 font-semibold'>Experience</div>
+                    <div class='mb-1 font-semibold'>Досвід</div>
                     <x-radio-group name="experience" :options="\App\Models\Job::$experience" />
                 </div>
                 <div>
-                    <div class='mb-1 font-semibold'>Category</div>
+                    <div class='mb-1 font-semibold'>Категорії</div>
                     <x-radio-group name="category" :options="\App\Models\Job::$category" />
                 </div>
             </div>
             <x-button class='w-full'>
-                Filter
+                Фільтрувати
             </x-button>
         </form>
     </x-card>
@@ -41,7 +42,7 @@
         <x-job-card class='mb-4' :job="$job">
             <div>
                 <x-link-button :href="route('jobs.show', $job)">
-                    Show
+                    Детальніше
                 </x-link-button>
             </div>
         </x-job-card>

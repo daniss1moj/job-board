@@ -1,8 +1,8 @@
  <nav {{ $attributes }}>
-     <ul class='flex gap-x-4 text-slate-500'>
+     <ul class='flex gap-x-4 font-bold'>
          <li>
              <a href="/">
-                 Home
+                 Головна
              </a>
          </li>
 

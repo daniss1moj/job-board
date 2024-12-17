@@ -13,7 +13,11 @@ class AuthController extends Controller
      */
     public function create()
     {
-        return view('auth.create');
+
+        $title = "Увійти | Huntberry";
+        $metaDescription = "Увійти, логін, пошук роботи в Україні - Huntberry";
+
+        return view('auth.create', compact('title', 'metaDescription'));
     }
 
     /**

@@ -1,10 +1,10 @@
  <x-card {{ $attributes->class('mb-4') }}>
      <div class='flex justify-between'>
          <h2 class='text-lg font-medium'>{{ $job->title }}</h2>
-         <div class='text-slate-500'>${{ number_format($job->salary) }}</div>
+         <div class="font-semibold">{{ number_format($job->salary, 2)  }} грн.</div>
      </div>
 
-     <div class='mb-4 flex items-center justify-between text-sm text-slate-500'>
+     <div class='mb-4 flex items-center justify-between text-sm'>
          <div class='flex space-x-4'>
              <div>
                  {{ $job->employer->company_name }}
